@@ -1,0 +1,19 @@
+.icon-robot{
+    width: 20%;
+    height: 30%;
+    border-radius: 50%;
+    cursor: pointer;
+    border-color: blue;
+    border-width: 5px;
+    background-color: rgb(248, 255, 47);
+}
+
+.my-scroll{
+    display: flex;
+    overflow: auto;
+    flex-direction: column-reverse;
+}
+
+.border-listening{
+    background-color: greenyellow;
+}

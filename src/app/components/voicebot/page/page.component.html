@@ -1,0 +1,21 @@
+<div class="text-center mt-4 mb-2">
+    <img [ngClass]="{'border-listening': this.listening}" (click)="this.listen()" class="icon-robot border p-4" src="assets/robot.png"/>
+</div>
+
+<div class="w-100 h-30 border p-4">
+    <div style="height: 80%;" class="overflow-auto">
+        <div *ngFor="let item of this.messages; let index = index">
+            <div class="d-flex flex-row-reverse mt-2 my-scroll">
+                <app-message [message]="item"></app-message>
+            </div>
+            <div class="mt-2">
+                <app-response *ngIf="index+1 <= this.responses.length" [response]="this.responses[index]"></app-response>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="this.data">
+    <video autoplay>
+        <source [src]="this.sanitize(this.data)"/>
+    </video>
+</div>

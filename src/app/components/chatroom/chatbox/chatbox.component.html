@@ -1,0 +1,16 @@
+<div class="w-100 h-100 container">
+    <h2 class="pt-3 text-center">Chatbot</h2>
+    <div style="height: 80%;" class="overflow-auto">
+        <div *ngFor="let item of this.messages; let index = index">
+            <div class="d-flex flex-row-reverse mt-2 my-scroll">
+                <app-message [message]="item"></app-message>
+            </div>
+            <div class="mt-2">
+                <app-response *ngIf="index+1 <= this.responses.length" [response]="this.responses[index]"></app-response>
+            </div>
+        </div>
+    </div>
+    <div class="input-group mt-3">
+        <input (change)="getInput($event)" (keyup.enter)="handleEnter()" type="text" value="{{this.message}}" class="form-control" placeholder="Enter..." aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+</div>

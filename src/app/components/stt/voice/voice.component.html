@@ -1,0 +1,16 @@
+<div class="text-center mt-4">
+  <i class="fa fa-microphone micro" [ngClass]="{'play': this.recording, 'pause': !this.recording}" aria-hidden="true"></i>
+  <div>
+    <button (click)="this.startRecord()" *ngIf="!this.recording" mat-flat-button color="primary">Start Recording</button>
+    <button (click)="this.stopRecord()" *ngIf="this.recording" mat-flat-button color="warn">Stop Recording</button>
+
+  </div>
+<!--   <video controls *ngIf="this.url">
+    <source [src]="this.sanitize(this.url)"/>
+  </video> -->
+  <div class="border mt-2 p-2" *ngIf="this.transcribe != ''">
+    <h2 class="d-flex">TRANSCRIBE</h2>
+    <hr />
+    <p class="d-flex">{{this.transcribe.toUpperCase()}}</p>
+  </div>
+</div>
