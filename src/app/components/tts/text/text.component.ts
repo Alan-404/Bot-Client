@@ -28,6 +28,9 @@ export class TextComponent {
   }
 
   transform(){
+    if(this.textInput == ""){
+      return;
+    }
     this.loading = true
     this.urlAudio = ""
     this.ttsService.transform(this.textInput).subscribe(response => {

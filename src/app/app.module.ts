@@ -19,7 +19,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { PageComponent } from './components/voicebot/page/page.component';
 import {MatTreeModule} from '@angular/material/tree';
-
+import {MatIconModule} from '@angular/material/icon';
+import { SoundWaveComponent } from './components/tts/sound-wave/sound-wave.component';
+import { HomeComponent } from './components/main-page/home/home.component';
+import { HeaderComponent } from './components/features/header/header.component';
+import { RenderPdfComponent } from './components/documentation/render-pdf/render-pdf.component';
+import { DocumentComponent } from './components/documentation/document/document.component';
+import { ShowComponent } from './components/product/show/show.component';
 const appRoutes: Routes = [
   {
     path: "chatbot",
@@ -36,6 +42,18 @@ const appRoutes: Routes = [
   {
     path: "voicebot",
     component: PageComponent
+  },
+  {
+    path: "documentation",
+    component: DocumentComponent
+  },
+  {
+    path: "pdf",
+    component: RenderPdfComponent
+  },
+  {
+    path: "",
+    component: HomeComponent
   }
 ]
 
@@ -50,7 +68,13 @@ const appRoutes: Routes = [
     VoiceComponent,
     FileComponent,
     TextComponent,
-    PageComponent
+    PageComponent,
+    SoundWaveComponent,
+    HomeComponent,
+    HeaderComponent,
+    RenderPdfComponent,
+    DocumentComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +86,8 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatInputModule,
     MatProgressBarModule,
-    MatTreeModule
+    MatTreeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
 <div class="container w-100">
-    <h2 class="text-center mt-3">Text to Speech</h2>
+    <h2 class="text-center mt-3">Speaker</h2>
     <mat-progress-bar *ngIf="this.loading" mode="indeterminate"></mat-progress-bar>
     <mat-form-field class="example-full-width w-100">
         <mat-label>Text here</mat-label>
-        <input (change)="getText($event)" class="w-100" matInput placeholder="Enter text here">
+        <input (keyup.enter)="this.transform()" (change)="getText($event)" class="w-100" matInput placeholder="Enter text here">
     </mat-form-field>
     <button (click)="transform()" mat-flat-button color="warn">Transform</button>
     <div *ngIf="this.textInput != '' && this.urlAudio != ''" class="mt-3">
@@ -12,3 +12,5 @@
         </video>
     </div>
 </div>
+
+  

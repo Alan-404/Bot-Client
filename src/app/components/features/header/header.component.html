@@ -1,0 +1,34 @@
+<div class="my-header">
+  <div class="d-flex justify-content-between container p-3">
+    <div class="d-flex">
+      <img [routerLink]="['']" class="my-img" src="assets/logo.png" />
+      <p class="mx-3">Nguyen Duc Tri (Alan) <br /> 19110302</p>
+    </div>
+    <ul class="nav w-75 d-flex justify-content-between">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">About Me</a>
+      </li>
+      <li (mouseenter)="this.hover(true)" (mouseleave)="this.hover(false)" class="nav-item">
+        <a class="nav-link" href="#">Products & Services</a>
+        <div *ngIf="this.seeProducts" style="position: absolute; width: 10%;" class="list-group mx-3">
+          <a [routerLink]="['/voicebot']" class="list-group-item list-group-item-action">Voicebot</a>
+          <a [routerLink]="['/chatbot']" class="list-group-item list-group-item-action">Chatbot</a>
+          <a [routerLink]="['/stt']" class="list-group-item list-group-item-action">Transciber</a>
+          <a [routerLink]="['/tts']" class="list-group-item list-group-item-action">Speaker</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">News</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['documentation']">Documentations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['documentation']">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['documentation']">Blogs</a>
+      </li>
+    </ul>
+  </div>
+</div>

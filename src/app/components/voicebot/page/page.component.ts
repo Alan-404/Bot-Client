@@ -22,7 +22,7 @@ export class PageComponent {
   error: any
 
   listening = false
-
+  thinking = false
   data: any
   transcribe: string = ''
 
@@ -73,7 +73,8 @@ export class PageComponent {
   }
 
   async processRecording(blob: Blob){
-    this.url = URL.createObjectURL(blob)
+    
+    this.thinking = true
     await this.sttService.sendAudio(blob).subscribe(async(response) => {
       this.message = response.result + "?"
       this.messages.push(response.result + "?")
@@ -82,6 +83,7 @@ export class PageComponent {
         this.responses.push(rep.response)
         await this.ttsService.transform(this.response).subscribe(async(res) => {
           this.data = URL.createObjectURL(res)
+          this.thinking = false
         })
       })
     })

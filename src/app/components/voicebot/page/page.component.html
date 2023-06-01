@@ -1,21 +1,42 @@
-<div class="text-center mt-4 mb-2">
-    <img [ngClass]="{'border-listening': this.listening}" (click)="this.listen()" class="icon-robot border p-4" src="assets/robot.png"/>
-</div>
-
-<div class="w-100 h-30 border p-4">
-    <div style="height: 80%;" class="overflow-auto">
-        <div *ngFor="let item of this.messages; let index = index">
-            <div class="d-flex flex-row-reverse mt-2 my-scroll">
-                <app-message [message]="item"></app-message>
-            </div>
-            <div class="mt-2">
-                <app-response *ngIf="index+1 <= this.responses.length" [response]="this.responses[index]"></app-response>
+<div class="container">
+    <!-- <div class="mb-4 text-center">
+        <img [ngClass]="{'border-listening': this.listening}" (click)="this.listen()" class="icon-robot border p-3" src="assets/robot.png"/>
+    </div> -->
+    <div *ngIf="this.listening" class="waveContainer">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+        <div class="wave wave5"></div> 
+    </div>
+    <div *ngIf="this.thinking" class="col-3 mx-4">
+        <div class="snippet" data-title="dot-falling">
+          <div class="stage">
+            <div class="dot-falling"></div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="w-100 mt-5 h-25 border p-4">
+        <div #scroll [scrollTop]="scroll.scrollHeight" class="my-scroll p-4" style="height: 100%;">
+            <div *ngFor="let item of this.messages; let index = index">
+                <div class="d-flex flex-row-reverse mt-2">
+                    <app-message [message]="item.toUpperCase()"></app-message>
+                </div>
+                <div class="mt-2">
+                    <app-response *ngIf="index+1 <= this.responses.length" [response]="this.responses[index].toUpperCase()"></app-response>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div *ngIf="this.data">
-    <video autoplay>
-        <source [src]="this.sanitize(this.data)"/>
-    </video>
+    <div class="text-center mt-3">
+        <button (click)="this.listen()" *ngIf="!this.listening" class="my-btn pt-2 listening-btn"><mat-icon>mic</mat-icon></button>
+        <button (click)="this.listen()" *ngIf="this.listening" class="my-btn pt-2 stop-listening-btn"><mat-icon>mic_off</mat-icon></button>
+    </div>
+    <div *ngIf="this.data">
+        <video autoplay>
+            <source [src]="this.sanitize(this.data)"/>
+        </video>
+    </div>
+    
 </div>
